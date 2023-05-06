@@ -2,6 +2,7 @@ class Personatge {
     private String nom;
     private int PS;
     private int PA;
+
     private int PD;
     private int PEX;
 
