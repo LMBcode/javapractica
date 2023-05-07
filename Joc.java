@@ -46,6 +46,28 @@ class Joc {
         }
 
         System.out.println("Iniciando combate entre " + personatge1.getNom() + " y " + personatge2.getNom());
+
+        while (personatge1.getPS() > 0 && personatge2.getPS() > 0) {
+            // Personatge 1 ataca a personatge 2
+            int dany1 = personatge1.getPA() - personatge2.getPD();
+            if (dany1 > 0) {
+                personatge2.setPS(personatge2.getPS() - dany1);
+            }
+
+            // Personatge 2 ataca a personatge 1
+            int dany2 = personatge2.getPA() - personatge1.getPD();
+            if (dany2 > 0) {
+                personatge1.setPS(personatge1.getPS() - dany2);
+            }
+        }
+
+        if (personatge1.getPS() <= 0 && personatge2.getPS() <= 0) {
+            System.out.println("El combate ha terminado en empate.");
+        } else if (personatge1.getPS() > 0) {
+            System.out.println("El combate ha terminado. El ganador es " + personatge1.getNom());
+        } else {
+            System.out.println("El combate ha terminado. El ganador es " + personatge2.getNom());
+        }
     }
 
 }
